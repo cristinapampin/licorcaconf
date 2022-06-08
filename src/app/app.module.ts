@@ -15,11 +15,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatStepperModule } from '@angular/material/stepper';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { ConductCodeComponent } from './pages/conduct-code/conduct-code.component';
 import { Call4papersComponent } from './pages/call4papers/call4papers.component';
 import { LicorcaTeamComponent } from './pages/licorca-team/licorca-team.component';
+import { SpeakerFormComponent } from './components/speaker-form/speaker-form.component';
+import { PaperFormComponent } from './components/paper-form/paper-form.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,9 @@ import { LicorcaTeamComponent } from './pages/licorca-team/licorca-team.componen
     HomeComponent,
     ConductCodeComponent,
     Call4papersComponent,
-    LicorcaTeamComponent
+    LicorcaTeamComponent,
+    SpeakerFormComponent,
+    PaperFormComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +50,8 @@ import { LicorcaTeamComponent } from './pages/licorca-team/licorca-team.componen
     MatCardModule,
     MatInputModule,
     MatSelectModule,
+    MatCheckboxModule,
+    MatStepperModule,
     ReactiveFormsModule
   ],
   providers: [],

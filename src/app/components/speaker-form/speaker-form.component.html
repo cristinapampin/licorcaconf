@@ -1,0 +1,75 @@
+<div [formGroup]="speakerForm" fxFlex="100" fxLayout="row" fxLayoutAlign="center">
+  <div fxFlex="70" fxLayout="column" fxLayoutAlign="top">
+    <mat-form-field>
+      <mat-label>Nombre completo</mat-label>
+      <input matInput formControlName="speakerFullName">
+      <mat-error *ngIf="speakerForm.get('speakerFullName').errors?.['required']">Es obligatorio</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Elige tu pronombre</mat-label>
+      <mat-select formControlName="speakerPronoun">
+        <mat-option value="ella">Ella</mat-option>
+        <mat-option value="elle">Elle</mat-option>
+        <mat-option value="el">El</mat-option>
+        <!-- otro-->
+      </mat-select>
+      <mat-error *ngIf="speakerForm.get('speakerPronoun').errors?.['required']">Es obligatorio</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="speakerMail">
+      <mat-error *ngIf="speakerForm.get('speakerMail').errors?.['required']">Es obligatorio</mat-error>
+      <mat-error *ngIf="speakerForm.get('speakerMail').errors?.['email']">Format</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Bio</mat-label>
+      <textarea matInput formControlName="speakerBio" rows="5"> </textarea>
+      <mat-error *ngIf="speakerForm.get('speakerBio').errors?.['required']">Es obligatorio</mat-error>
+      <mat-error *ngIf="speakerForm.get('speakerBio').errors?.['minLength']">Format</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Rol</mat-label>
+      <input matInput formControlName="speakerRole">
+      <mat-error *ngIf="speakerForm.get('speakerRole').errors?.['required']">Es obligatorio</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Años de experiencia</mat-label>
+      <input matInput formControlName="speakerSeniority">
+      <mat-error *ngIf="speakerForm.get('speakerSeniority').errors?.['required']">Es obligatorio</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-label>Twitter</mat-label>
+      <input matInput formControlName="speakerTwitter">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>¿Desde donde vendrás a LicorcaConf?</mat-label>
+      <textarea matInput formControlName="speakerLocation" rows="5"> </textarea>
+      <mat-error *ngIf="speakerForm.get('speakerLocation').errors?.['required']">Es obligatorio</mat-error>
+    </mat-form-field>
+
+
+    <div class="c4p-field">
+      <mat-checkbox formControlName="speakerNeedsDoubleBed" (change)="checkSpeakerNeedsDoubleBed($event)">Voy a asistir
+        con compañía</mat-checkbox>
+    </div>
+
+    <mat-form-field *ngIf="showNeedsDescription">
+      <mat-label>tell</mat-label>
+      <textarea matInput formControlName="speakerNeedsDescription" rows="5"> </textarea>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-label>Otros comentarios</mat-label>
+      <textarea matInput formControlName="commentsSpeaker" rows="5"> </textarea>
+    </mat-form-field>
+  </div>
+</div>

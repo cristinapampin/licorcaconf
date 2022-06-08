@@ -1,39 +1,44 @@
-<form [formGroup]="paperForm">
-  <div>
-    <mat-card>
-      <mat-card-title>Tu propuesta</mat-card-title>
-      <mat-card-subtitle>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos reiciendis optio
-        voluptatibus repudiandae molestias placeat quo corrupti nam est officiis dolore nihil, magnam, at fugiat quaerat
-        aut. Quo, deleniti ipsam?</mat-card-subtitle>
+<mat-vertical-stepper [linear]="false" #stepper animationDuration="1800">
 
-      <mat-form-field>
-        <mat-label>Elige tu formato</mat-label>
-        <mat-select formControlName="typePaper">
-          <mat-option value="typePaper.talk">Charla</mat-option>
-          <mat-option value="typePaper.openSpace">Open space</mat-option>
-        </mat-select>
-        <mat-error *ngIf="paperForm.get('typePaper').errors?.['required']">Es obligatorio</mat-error>
-      </mat-form-field>
+  <mat-step [stepControl]="paperForm">
+    <form [formGroup]="paperForm">
+      <ng-template matStepLabel>Paper</ng-template>
+      <app-paper-form [paperForm]="paperForm" (isDoublePaper)="onChangeDoublePaper($event)"></app-paper-form>
+      <div>
+        <button mat-raised-button matStepperNext color="accent">Siguiente</button>
+      </div>
+    </form>
+  </mat-step>
 
-      <mat-form-field>
-        <mat-label>Título de tu propuesta</mat-label>
-        <input matInput formControlName="titlePaper">
-        <mat-error *ngIf="paperForm.get('titlePaper').errors?.['required']">Es obligatorio</mat-error>
-      </mat-form-field>
+  <mat-step [stepControl]="speakerForm">
+    <form [formGroup]="speakerForm">
+      <ng-template matStepLabel>Speaker</ng-template>
 
-      <mat-form-field>
-        <mat-label>Descripción de tu propuesta</mat-label>
-        <input matInput formControlName="descriptionPaper">
-        <mat-error *ngIf="paperForm.get('descriptionPaper').errors?.['required']">Es obligatorio</mat-error>
-        <mat-error *ngIf="paperForm.get('descriptionPaper').errors?.['minLength']">Min 350 caracteres</mat-error>
-      </mat-form-field>
+      <app-speaker-form [speakerForm]="speakerForm" (speakerNeedsChange)="onChangeSpekerNeeds($event)">
+      </app-speaker-form>
+      <div>
+        <button mat-raised-button matStepperPrevious>Volver</button>
+        <button mat-raised-button matStepperNext color="accent">Siguiente</button>
+      </div>
+    </form>
+  </mat-step>
 
-      <!-- <mat-checkbox class="col-12 col-md-4 mt-3" formControlName="firstTalk">Primera</mat-checkbox>-->
+  <mat-step [stepControl]="secondSpeakerForm" *ngIf="paperHas2Speakers">
+    <form [formGroup]="secondSpeakerForm">
+      <ng-template matStepLabel>Second Speaker</ng-template>
 
-    </mat-card>
+      <app-speaker-form [speakerForm]="secondSpeakerForm" (speakerNeedsChange)="onChangeSpekerNeeds($event)">
+      </app-speaker-form>
+      <div>
+        <button mat-raised-button matStepperPrevious>Volver</button>
+        <button mat-raised-button matStepperNext color="accent">Siguiente</button>
+      </div>
+    </form>
+  </mat-step>
 
 
-  </div>
-</form>
+</mat-vertical-stepper>
 
-<button mat-raised-button color="accent">Enviar propuesta</button>
+<button mat-raised-button color="warn" (click)="sendPaper()"
+  [disabled]="paperForm.invalid || speakerForm.invalid || (paperHas2Speakers && secondSpeakerForm.invalid)">Enviar
+  propuesta</button>

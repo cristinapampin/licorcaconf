@@ -1,0 +1,49 @@
+<div [formGroup]="paperForm" fxFlex="100" fxLayout="row" fxLayoutAlign="center">
+  <div fxFlex="70" fxLayout="column" fxLayoutAlign="top">
+    <mat-form-field>
+      <mat-label>Elige tu formato</mat-label>
+      <mat-select formControlName="typePaper">
+        <mat-option value="typePaper.talk">Charla</mat-option>
+        <mat-option value="typePaper.openSpace">Open space</mat-option>
+      </mat-select>
+      <mat-error *ngIf="paperForm.get('typePaper').errors?.['required']">Es obligatorio</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Título de tu propuesta</mat-label>
+      <input matInput formControlName="titlePaper">
+      <mat-error *ngIf="paperForm.get('titlePaper').errors?.['required']">Es obligatorio</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Descripción de tu propuesta</mat-label>
+      <textarea matInput formControlName="descriptionPaper" rows="5"> </textarea>
+      <mat-error *ngIf="paperForm.get('descriptionPaper').errors?.['required']">Es obligatorio</mat-error>
+      <mat-error *ngIf="paperForm.get('descriptionPaper').errors?.['minLength']">Min 350 caracteres</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Tema de tu propuesta</mat-label>
+      <input matInput formControlName="topicPaper">
+      <mat-error *ngIf="paperForm.get('topicPaper').errors?.['required']">Es obligatorio</mat-error>
+    </mat-form-field>
+
+    <div class="c4p-field">
+      <mat-checkbox formControlName="isDoublePaper" (change)="checkIsDoublePaper($event)">Es una propuesta junto a otra
+        persona</mat-checkbox>
+    </div>
+
+    <div class="c4p-field">
+      <mat-checkbox formControlName="firstTalk">Primera</mat-checkbox>
+    </div>
+    <div class="c4p-field">
+      <mat-checkbox formControlName="needMentoring">needMentoring</mat-checkbox>
+    </div>
+
+    <mat-form-field>
+      <mat-label>Comentarios sobre tu propuesta</mat-label>
+      <textarea matInput formControlName="commentsPaper" rows="5"> </textarea>
+    </mat-form-field>
+  </div>
+
+</div>

@@ -1,1 +1,7 @@
-<p>licorca-team works!</p>
+<div>
+  <div class="licorcaTeamCard" *ngFor="let member of licorcaTeam">
+    <h3>{{member.fullname}}</h3>
+    <h5>{{member.rol}}</h5>
+    <img mat-card-image src="../../../assets/licorcaTeam/{{member.photo}}.jpg" alt="{{member.fullname}}">
+  </div>
+</div>

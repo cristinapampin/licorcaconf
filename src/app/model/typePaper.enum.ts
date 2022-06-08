@@ -1,4 +1,4 @@
-export enum typePaper {
+export enum TypePaperEnum {
   talk,
   openSpace
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { typePaper } from 'src/app/model/typePaper.enum';
+import { TypePaperEnum } from 'src/app/model/typePaper.enum';
 
 @Component({
   selector: 'app-call4papers',
@@ -10,7 +10,7 @@ import { typePaper } from 'src/app/model/typePaper.enum';
 export class Call4papersComponent implements OnInit {
 
   paperForm: FormGroup
-  typePaper: typePaper
+  typePaper: TypePaperEnum
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -40,6 +40,7 @@ export class Call4papersComponent implements OnInit {
       commentsSpeaker: [''],
     })
   }
+
 
   savePaper() {
     console.log(this.paperForm.value, this.paperForm.valid)

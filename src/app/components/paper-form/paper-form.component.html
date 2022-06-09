@@ -1,5 +1,10 @@
 <div [formGroup]="paperForm" fxFlex="100" fxLayout="row" fxLayoutAlign="center">
-  <div fxFlex="70" fxLayout="column" fxLayoutAlign="top">
+  <div fxFlex.gt-lg="60" fxFlex.gt-md="70" fxFlex.gt-sm="100" fxLayout="column" fxLayoutAlign="top">
+    <p>El <b>Content Team de LicorcaConf</b> seleccionará entre todas las propuestas viendo SÓLO el <b>título</b>, la
+      <b>descripción</b>, el <b>tema</b> y el <b>idioma</b> de tu propuesta. El resto de datos serán usados por el
+      Licorca Team si tu propuesta es seleccionada.
+    </p>
+    <p>Las <b>charlas</b> tendrán una duración de <b>40 min + 10 Q&A</b> y los <b>open spaces</b> de <b>50 min</b>.</p>
     <mat-form-field>
       <mat-label>Elige tu formato</mat-label>
       <mat-select formControlName="typePaper">
@@ -11,21 +16,29 @@
 
     <mat-form-field>
       <mat-label>Título de tu propuesta</mat-label>
-      <input matInput formControlName="titlePaper">
+      <input matInput formControlName="titlePaper" placeholder="El Content Team puede ver esta información">
       <mat-error *ngIf="paperForm.get('titlePaper').errors?.['required']">Es obligatorio</mat-error>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Descripción de tu propuesta</mat-label>
-      <textarea matInput formControlName="descriptionPaper" rows="5"> </textarea>
+      <textarea matInput formControlName="descriptionPaper" rows="5"
+        placeholder="El Content Team puede ver esta información"> </textarea>
+      <mat-hint align="end">{{paperForm.get('descriptionPaper').value.length}} / 350</mat-hint>
       <mat-error *ngIf="paperForm.get('descriptionPaper').errors?.['required']">Es obligatorio</mat-error>
-      <mat-error *ngIf="paperForm.get('descriptionPaper').errors?.['minLength']">Min 350 caracteres</mat-error>
+      <mat-error *ngIf="paperForm.get('descriptionPaper').errors?.['minlength']">Mínimo 350 caracteres</mat-error>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Tema de tu propuesta</mat-label>
-      <input matInput formControlName="topicPaper">
+      <input matInput formControlName="topicPaper" placeholder="El Content Team puede ver esta información">
       <mat-error *ngIf="paperForm.get('topicPaper').errors?.['required']">Es obligatorio</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Idioma de tu propuesta</mat-label>
+      <input matInput formControlName="languagePaper" placeholder="El Content Team puede ver esta información">
+      <mat-error *ngIf="paperForm.get('languagePaper').errors?.['required']">Es obligatorio</mat-error>
     </mat-form-field>
 
     <div class="c4p-field">
@@ -34,14 +47,14 @@
     </div>
 
     <div class="c4p-field">
-      <mat-checkbox formControlName="firstTalk">Primera</mat-checkbox>
+      <mat-checkbox formControlName="firstTalk">Es mi primera charla</mat-checkbox>
     </div>
     <div class="c4p-field">
-      <mat-checkbox formControlName="needMentoring">needMentoring</mat-checkbox>
+      <mat-checkbox formControlName="needMentoring">Quiero mentorización</mat-checkbox>
     </div>
 
     <mat-form-field>
-      <mat-label>Comentarios sobre tu propuesta</mat-label>
+      <mat-label>Comentarios adicionales sobre tu propuesta</mat-label>
       <textarea matInput formControlName="commentsPaper" rows="5"> </textarea>
     </mat-form-field>
   </div>

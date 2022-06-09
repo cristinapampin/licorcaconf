@@ -24,6 +24,7 @@ import { Call4papersComponent } from './pages/call4papers/call4papers.component'
 import { LicorcaTeamComponent } from './pages/licorca-team/licorca-team.component';
 import { SpeakerFormComponent } from './components/speaker-form/speaker-form.component';
 import { PaperFormComponent } from './components/paper-form/paper-form.component';
+import { PapersComponent } from './pages/papers/papers.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PaperFormComponent } from './components/paper-form/paper-form.component
     Call4papersComponent,
     LicorcaTeamComponent,
     SpeakerFormComponent,
-    PaperFormComponent
+    PaperFormComponent,
+    PapersComponent
   ],
   imports: [
     BrowserModule,

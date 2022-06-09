@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Paper } from 'src/app/model/paper';
+import { SpeakerPronounEnum } from 'src/app/model/speakerPronoun.enum';
+import { PapersService } from 'src/app/services/papers.service';
 
 @Component({
   selector: 'app-call4papers',
@@ -12,18 +15,20 @@ export class Call4papersComponent implements OnInit {
   secondSpeakerForm: FormGroup
   paperHas2Speakers: boolean
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private papersService: PapersService) { }
 
   ngOnInit(): void {
     this.createPaperform()
     this.speakerForm = this.createSpeakerform()
   }
+
   createPaperform() {
     this.paperForm = this.formBuilder.group({
       typePaper: ['', Validators.required],
       titlePaper: ['', Validators.required],
       descriptionPaper: ['', [Validators.required, Validators.minLength(350)]],
       topicPaper: ['', Validators.required],
+      languagePaper: ['', Validators.required],
       firstTalk: false,
       needMentoring: false,
       commentsPaper: [''],
@@ -39,6 +44,7 @@ export class Call4papersComponent implements OnInit {
       speakerBio: ['', [Validators.required, Validators.minLength(250)]],
       speakerTwitter: [''],
       speakerPronoun: ['', Validators.required],
+      speakerOtherPronoun: [''],
       speakerRole: ['', Validators.required],
       speakerSeniority: ['', Validators.required],
       isDoublePaper: false,
@@ -58,7 +64,17 @@ export class Call4papersComponent implements OnInit {
     }
   }
 
-  onChangeSpekerNeeds(speakerNeedsDoubleBed: boolean) {
+  onChangeSpekearPronoun(speakerPronoun: SpeakerPronounEnum) {
+    console.log(speakerPronoun)
+    if (speakerPronoun === SpeakerPronounEnum.otro) {
+      this.speakerForm.get('speakerOtherPronoun').addValidators([Validators.required])
+    } else {
+      this.speakerForm.get('speakerOtherPronoun').clearValidators()
+      this.speakerForm.get('speakerOtherPronoun').setValue('')
+    }
+  }
+
+  onChangeSpeakerNeeds(speakerNeedsDoubleBed: boolean) {
     if (speakerNeedsDoubleBed) {
       this.speakerForm.get('speakerNeedsDescription').addValidators([Validators.required])
     } else {
@@ -67,9 +83,18 @@ export class Call4papersComponent implements OnInit {
     }
   }
 
-  sendPaper() {
-    console.log(this.paperForm.value, this.speakerForm.value, this.secondSpeakerForm.value)
-
+  async sendPaper() {
+    const paper: Paper = {
+      paperForm: this.paperForm.value,
+      speakerForm: this.speakerForm.value,
+      secondSpeakerForm: this.secondSpeakerForm.value
+    }
+    try {
+      await this.papersService.createPaper(paper)
+    }
+    catch (error) {
+      console.error(error)
+    }
   }
 
 }

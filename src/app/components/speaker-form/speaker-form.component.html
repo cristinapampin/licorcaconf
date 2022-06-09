@@ -8,27 +8,34 @@
 
     <mat-form-field>
       <mat-label>Elige tu pronombre</mat-label>
-      <mat-select formControlName="speakerPronoun">
-        <mat-option value="ella">Ella</mat-option>
-        <mat-option value="elle">Elle</mat-option>
-        <mat-option value="el">El</mat-option>
-        <!-- otro-->
+      <mat-select formControlName="speakerPronoun" (selectionChange)="checkSpeakerPronoun($event)">
+        <mat-option value="speakerPronounEnum.ella">Ella</mat-option>
+        <mat-option value="speakerPronounEnum.elle">Elle</mat-option>
+        <mat-option value="speakerPronounEnum.el">El</mat-option>
+        <mat-option value="speakerPronounEnum.otro">Otro</mat-option>
       </mat-select>
       <mat-error *ngIf="speakerForm.get('speakerPronoun').errors?.['required']">Es obligatorio</mat-error>
     </mat-form-field>
+
+    <mat-form-field *ngIf="showPronounInput">
+      <mat-label>Cuéntanos cuál es tu pronombre</mat-label>
+      <input matInput formControlName="speakerOtherPronoun" />
+    </mat-form-field>
+
 
     <mat-form-field>
       <mat-label>Email</mat-label>
       <input matInput formControlName="speakerMail">
       <mat-error *ngIf="speakerForm.get('speakerMail').errors?.['required']">Es obligatorio</mat-error>
-      <mat-error *ngIf="speakerForm.get('speakerMail').errors?.['email']">Format</mat-error>
+      <mat-error *ngIf="speakerForm.get('speakerMail').errors?.['email']">|El formato no es adecuado</mat-error>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Bio</mat-label>
       <textarea matInput formControlName="speakerBio" rows="5"> </textarea>
+      <mat-hint align="end">{{speakerForm.get('speakerBio').value.length}} / 250</mat-hint>
       <mat-error *ngIf="speakerForm.get('speakerBio').errors?.['required']">Es obligatorio</mat-error>
-      <mat-error *ngIf="speakerForm.get('speakerBio').errors?.['minLength']">Format</mat-error>
+      <mat-error *ngIf="speakerForm.get('speakerBio').errors?.['minlength']">Mínimo 250 caracteres</mat-error>
     </mat-form-field>
 
     <mat-form-field>
@@ -62,7 +69,7 @@
     </div>
 
     <mat-form-field *ngIf="showNeedsDescription">
-      <mat-label>tell</mat-label>
+      <mat-label>Cuéntanos qué necesitas</mat-label>
       <textarea matInput formControlName="speakerNeedsDescription" rows="5"> </textarea>
     </mat-form-field>
 

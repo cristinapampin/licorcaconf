@@ -14,7 +14,7 @@
     <form [formGroup]="speakerForm">
       <ng-template matStepLabel>Speaker</ng-template>
 
-      <app-speaker-form [speakerForm]="speakerForm" (speakerNeedsChange)="onChangeSpekerNeeds($event)">
+      <app-speaker-form [speakerForm]="speakerForm" (speakerNeedsChange)="onChangeSpeakerNeeds($event)">
       </app-speaker-form>
       <div>
         <button mat-raised-button matStepperPrevious>Volver</button>
@@ -27,7 +27,7 @@
     <form [formGroup]="secondSpeakerForm">
       <ng-template matStepLabel>Second Speaker</ng-template>
 
-      <app-speaker-form [speakerForm]="secondSpeakerForm" (speakerNeedsChange)="onChangeSpekerNeeds($event)">
+      <app-speaker-form [speakerForm]="secondSpeakerForm" (speakerNeedsChange)="onChangeSpeakerNeeds($event)">
       </app-speaker-form>
       <div>
         <button mat-raised-button matStepperPrevious>Volver</button>

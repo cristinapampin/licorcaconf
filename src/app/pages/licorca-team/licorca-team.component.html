@@ -1,7 +1,22 @@
-<section>
-  <div class="licorcaTeamCard" *ngFor="let member of licorcaTeam">
-    <h3>{{member.fullname}}</h3>
-    <h5>{{member.rol}}</h5>
-    <img mat-card-image src="../../../assets/licorcaTeam/{{member.photo}}.png" alt="{{member.fullname}}">
-  </div>
+<section fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
+
+  <section fxLayout="row">
+    <section class="licorcaTeamCard" *ngFor="let member of licorcaTeam" fxFlex="25">
+      <img src="../../../assets/licorcaTeam/{{member.photo}}.png" alt="{{member.fullname}}">
+      <h3>{{member.fullname}}</h3>
+      <h5>{{member.rol}}</h5>
+    </section>
+  </section>
+
+  <section>
+    <p>¿Quieres formar parte del Content team de la #LicorcaConf22? 🔥🔥</p>
+
+    <p>Si no vas a presentarte al #Call4Papers pero quieres participar activamente en la Licorca vas a poder ayudarnos
+      votando charlas/open spaces</p>
+
+    <p> 🥃Habrá recompensa</p>
+    <a mat-raised-button color="accent"
+      href="https://docs.google.com/forms/d/e/1FAIpQLSc4HZEHxDKUr4_dekmTQY2zYs8GC-eRhiRTxA9hHkAMpoEdyQ/viewform"
+      target="_blank">Accede al form</a>
+  </section>
 </section>

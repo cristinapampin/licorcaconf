@@ -5,6 +5,10 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+
+  section {
+    width: 80%;
+  }
 }
 
 .black-section {
@@ -12,9 +16,9 @@
   background-color: black;
 }
 
-.purple-section {
+.yellow-section {
   height: 40vh;
-  background-color: #572cd3;
+  background-color: #feda5b;
 }
 
 .center {
@@ -26,7 +30,11 @@
 }
 
 .purple-title {
-  color: #572cd3;
+  color: #8757e5;
+}
+
+.licorca-title {
+  font-size: 7vh;
 }
 
 .small-chupito {
@@ -35,16 +43,29 @@
 
 .sponsorship {
   height: 40vh;
-  background: url(../../../assets/bg/wavy-background.svg), linear-gradient(135deg, #ed6f3a, #7f58dc),
-  ;
+  background: url(../../../assets/bg/wavy-background.svg), linear-gradient(140deg, #000000, #8757e5);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+
+  section {
+    width: 30%;
+  }
+}
+
+@media(max-width: 959px) {
+  .sponsorship>section {
+    width: 90%;
+  }
 }
 
 .sponsors {
-  background-color: #572cd3;
+  background-color: #8757e5;
   padding-bottom: 3vh;
+
+  h2 {
+    padding: 3vh;
+  }
 
   .sponsor-diamante>img {
     max-width: 11.5vh;

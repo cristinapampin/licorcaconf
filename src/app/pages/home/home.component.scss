@@ -1,0 +1,64 @@
+.bg-img-home {
+  height: 80vh;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 100)),
+    url(../../../assets/bg/bg-home-title.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.black-section {
+  height: 40vh;
+  background-color: black;
+}
+
+.purple-section {
+  height: 40vh;
+  background-color: #572cd3;
+}
+
+.center {
+  text-align: center;
+}
+
+.white-title {
+  color: white;
+}
+
+.purple-title {
+  color: #572cd3;
+}
+
+.small-chupito {
+  max-width: 2vh;
+}
+
+.sponsorship {
+  height: 40vh;
+  background: url(../../../assets/bg/wavy-background.svg), linear-gradient(135deg, #ed6f3a, #7f58dc),
+  ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.sponsors {
+  background-color: #572cd3;
+  padding-bottom: 3vh;
+
+  .sponsor-diamante>img {
+    max-width: 11.5vh;
+  }
+
+  .sponsors-oro>img {
+    max-width: 8.5vh;
+  }
+
+  .sponsors-plata>img {
+    max-width: 6.2vh;
+  }
+
+  .sponsors-bronce>img {
+    max-width: 4.5vh;
+  }
+}

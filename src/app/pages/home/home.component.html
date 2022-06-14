@@ -1,29 +1,70 @@
-<h1>LicorcaConf</h1>
-<p>15 OCTUBRE 2022, SANTIAGO DE COMPOSTELA</p>
-<p>Tras dos ediciones online, tenemos muchas ganas de reencontrarnos</p>
-<button mat-raised-button color="accent">Síguenos en twitter</button>
+<div fxFlex="100" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
+  <section fxFlex="100">
 
-<p>Nos hemos unido para crear un evento tech diverso y muy gallego. ¿Qué mejor que emplear el licor café como emblema?
-</p>
+    <section class="bg-img-home" fxLayout="column" fxLayoutAlign="center">
+      <section>
+        <h1 class="white-title"><b>LicorcaConf</b></h1>
+        <p class="purple-title"><b>15 OCTUBRE 2022, SANTIAGO DE COMPOSTELA</b></p>
+        <p class="white-title">Tras dos ediciones online, tenemos muchas ganas de reencontrarnos</p>
+        <button mat-raised-button color="accent">Síguenos en twitter</button>
+      </section>
+    </section>
 
+    <section class="black-section white-title" fxLayout="column" fxLayoutAlign="center center">
+      <h2 class="white-title">Nos hemos unido para crear un evento tech diverso y muy gallego.</h2>
+      <h2> ¿Qué mejor que emplear el licor café como emblema? <img class="small-chupito"
+          src="../../../assets/chupito.png"> </h2>
+    </section>
 
-<div>
-  <p>MUY PRONTO</p>
-  <h2>Entradas</h2>
-</div>
+    <section class="purple-section" fxLayout="column" fxLayoutAlign="center center">
+      <p>MUY PRONTO</p>
+      <h2>Entradas</h2>
+    </section>
 
-<div>
-  <p>¿Quieres patrocinar la LicorcaConf?</p>
-  <div>
-    <a mat-raised-button type="button" color="accent"
-      href="https://drive.google.com/file/d/1Me0AzgK9o9YsZ6P6NciIgfq24fSiQP-K/view" alt="Link al dossier en inglés"
-      target="_blank">Dossier EN</a>
-    <a mat-raised-button type="button" color="accent"
-      href="https://drive.google.com/file/d/1pTsHXxJGKRZSZ5kL4nDMmw1MDE603xXG/view" alt="Link al dossier en español"
-      target="_blank">Dossier ES</a>
-  </div>
-</div>
+    <section class="sponsorship">
+      <p>¿Quieres patrocinar la LicorcaConf?</p>
+      <div>
+        <a mat-raised-button type="button" color="accent"
+          href="https://drive.google.com/file/d/1Me0AzgK9o9YsZ6P6NciIgfq24fSiQP-K/view" alt="Link al dossier en inglés"
+          target="_blank">Dossier EN</a>
+        <a mat-raised-button type="button" color="accent"
+          href="https://drive.google.com/file/d/1pTsHXxJGKRZSZ5kL4nDMmw1MDE603xXG/view" alt="Link al dossier en español"
+          target="_blank">Dossier ES</a>
+      </div>
+    </section>
 
-<div>
-  <h2>Sponsors</h2>
+    <section class="sponsors" fxLayout="column">
+      <h2>Sponsors</h2>
+
+      <section fxLayout="column">
+        <section fxLayoutAlign="center">
+          <div class="sponsor-diamante">
+            <img src="../../../assets/licorcaSponsors/{{sponsor_diamante.photo}}.png" alt="{{sponsor_diamante.name}}">
+            <h3 class="center" *ngIf="sponsor_diamante.name">{{sponsor_diamante.name}}</h3>
+          </div>
+        </section>
+
+        <section fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
+          <div class="sponsors-oro" *ngFor="let sponsor of sponsors_oro">
+            <img src="../../../assets/licorcaSponsors/{{sponsor.photo}}.png" alt="{{sponsor.name}}">
+            <h3 class="center">{{sponsor.name}}</h3>
+          </div>
+        </section>
+
+        <section fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
+          <div class="sponsors-plata" *ngFor="let sponsor of sponsors_plata">
+            <img src="../../../assets/licorcaSponsors/{{sponsor.photo}}.png" alt="{{sponsor.name}}">
+            <h3>{{sponsor.name}}</h3>
+          </div>
+        </section>
+
+        <section fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
+          <section class="sponsors-bronce" *ngFor="let sponsor of sponsors_bronce">
+            <img src="../../../assets/licorcaSponsors/{{sponsor.photo}}.png" alt="{{sponsor.name}}">
+            <h3>{{sponsor.name}}</h3>
+          </section>
+        </section>
+      </section>
+    </section>
+  </section>
 </div>

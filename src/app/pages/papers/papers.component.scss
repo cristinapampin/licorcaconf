@@ -48,3 +48,22 @@ section {
   font-weight: 700;
   display: block;
 }
+
+
+@media(max-width: 959px) {
+  .time-countdown ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .time-countdown ul li {
+    margin-right: 0;
+    padding: 24px 15px;
+  }
+
+  .time-countdown ul li span {
+    font-size: 25px;
+    line-height: 60px;
+    font-weight: 700;
+  }
+}

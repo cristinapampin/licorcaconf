@@ -1,18 +1,43 @@
-<div fxFlex="100" fxLayout="row" fxLayoutAlign="center">
-  <div fxFlex="70" fxLayout="column" fxLayoutAlign=" top">
-    <h1>Pronto se abre el C4P</h1>
-    <button mat-raised-button color="accent" routerLink="/call-4-papers">Presentar una propuesta</button>
-    <section>
-      <div class="coming-soon">
-        <div class="time-countdown">
-          <ul>
-            <li><span id="days">{{day}}</span>Dias</li>
-            <li><span id="hours">{{hours}}</span>Horas</li>
-            <li><span id="minutes">{{minutes}}</span>Minutos</li>
-            <li><span id="seconds">{{seconds}}</span>Segundos</li>
-          </ul>
-        </div>
+<section fxFlex="100" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
+  <section fxFlex="70" fxLayout="column" fxLayoutAlign="center">
+    <div class="papers">
+      <h1>Presenta tu propuesta</h1>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus asperiores eum, tempore sit enim dolor
+        debitis et libero in nulla ad sapiente facere accusantium suscipit esse laboriosam dolorem nemo nostrum!</p>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus asperiores eum, tempore sit enim dolor
+        debitis et libero in nulla ad sapiente facere accusantium suscipit esse laboriosam dolorem nemo nostrum!</p>
+
+      <div>
+        <ul>
+          <li>
+            <mat-icon color="accent">airplanemode_active</mat-icon> Cubrimos tu desplazamiento
+          </li>
+          <li>
+            <mat-icon color="accent">hotel</mat-icon> Cubrimos tu alojamiento
+          </li>
+          <li>
+            <mat-icon color="accent">people</mat-icon> +1 friendly
+          </li>
+          <li>
+            <mat-icon color="accent">child_friendly</mat-icon> Family friendly
+          </li>
+        </ul>
       </div>
-    </section>
-  </div>
-</div>
+
+      <button mat-raised-button color="accent" routerLink="/call-4-papers">Presentar una propuesta</button>
+
+      <section class="countdown">
+        <div class="coming-soon">
+          <div class="time-countdown">
+            <ul>
+              <li><span id="days">{{day}}</span>Dias</li>
+              <li><span id="hours">{{hours}}</span>Horas</li>
+              <li><span id="minutes">{{minutes}}</span>Minutos</li>
+              <li><span id="seconds">{{seconds}}</span>Segundos</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+</section>

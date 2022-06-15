@@ -1,5 +1,3 @@
-import { TypePaperEnum } from "./typePaper.enum"
-
 export interface Paper {
   paperForm: PaperForm,
   speakerForm: SpeakerForm,
@@ -8,7 +6,6 @@ export interface Paper {
 
 
 interface PaperForm {
-  typePaper: TypePaperEnum
   titlePaper: string
   descriptionPaper: string
   topicPaper: string

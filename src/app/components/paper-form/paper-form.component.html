@@ -1,19 +1,10 @@
 <div [formGroup]="paperForm" fxFlex="100" fxLayout="row" fxLayoutAlign="center">
   <div fxFlex.gt-lg="60" fxFlex.gt-md="70" fxFlex.gt-sm="100" fxLayout="column" fxLayoutAlign="top">
-    <p>El <b>Content Team de LicorcaConf</b> seleccionará entre todas las propuestas viendo SÓLO el <b>título</b>, la
+    <p>El <b>Content Team de LicorcaConf</b> seleccionará entre todas las charlas viendo SÓLO el <b>título</b>, la
       <b>descripción</b>, el <b>tema</b> y el <b>idioma</b> de tu propuesta. El resto de datos serán usados por el
       Licorca Team si tu propuesta es seleccionada.
     </p>
-    <p>Las <b>charlas</b> tendrán una duración de <b>40 min + 10 Q&A</b> y los <b>open spaces</b> de <b>50 min</b>.</p>
-    <mat-form-field>
-      <mat-label>Elige tu formato</mat-label>
-      <mat-select formControlName="typePaper">
-        <mat-option value="typePaper.talk">Charla</mat-option>
-        <mat-option value="typePaper.openSpace">Open space</mat-option>
-      </mat-select>
-      <mat-error *ngIf="paperForm.get('typePaper').errors?.['required']">Es obligatorio</mat-error>
-    </mat-form-field>
-
+    <p>Las <b>charlas</b> tendrán una duración de <b>40 min + 10 Q&A</b>.</p>
     <mat-form-field>
       <mat-label>Título de tu propuesta</mat-label>
       <input matInput formControlName="titlePaper" placeholder="El Content Team puede ver esta información">
